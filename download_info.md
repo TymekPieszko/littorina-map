@@ -12,13 +12,14 @@ You can filter the download by categorical columns (i.e., not 'Timestamp', 'Lati
 
 ```
 # Fetch URLs
-python get_fastq_urls.py --project_id NRS --species saxatilis,arcana --sequence_type WGS_single_individual
+python get_fastq_urls.py \
+--sheet_url paste-url-here \
+--project_id NRS --species saxatilis,arcana --sequence_type WGS_single_individual
 ```
 
-This writes a file with all the target URLs. Download into a new directory as:
+This writes a file with all the target URLs. You can download into a new directory as:
 
 ```bash
-# Download FASTQ files
 mkdir fastq
 cd ./fastq
 
