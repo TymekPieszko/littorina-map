@@ -1,14 +1,14 @@
 ## Download instructions for *Littorina* sequence collection
 
-Questions: t.pieszko@ucl.ac.uk
+Contact: t.pieszko@ucl.ac.uk
 
 Download the `get_fastq_urls.py` script:
 
-```
-wget 
+```bash
+wget https://raw.githubusercontent.com/TymekPieszko/littorina-seq/main/get_fastq_urls.py
 ```
 
-You can filter the download by categorical columns (i.e., not 'Timestamp', 'Latitude', 'Longitude') and request multiple categories as a comma-delimited list.
+The only required argument is `--sheet_url` - just paste the Google Docs URL! You can filter the dataset by categorical columns (i.e., not 'Timestamp', 'Latitude', 'Longitude' or 'Targeted_coverage') and request multiple categories (comma-delimited).
 
 ```
 # Fetch URLs
@@ -17,7 +17,7 @@ python get_fastq_urls.py \
 --project_id NRS --species saxatilis,arcana --sequence_type WGS_single_individual
 ```
 
-This writes a file with all the target URLs. You can download into a new directory as:
+The script writes a file with all the target URLs. You can download FASTQ files into a new directory as:
 
 ```bash
 mkdir fastq
