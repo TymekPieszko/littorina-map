@@ -12,6 +12,7 @@ The only required argument is `--sheet_url` - just paste the Google Docs URL! Yo
 
 ```bash
 # Fetch URLs
+# Note the args are in lowercase
 python get_fastq_urls.py \
 --sheet_url paste-url-here \
 --project_id NRS --species saxatilis,arcana --sequence_type WGS_single_individual
