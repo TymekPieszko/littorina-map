@@ -12,13 +12,13 @@ The only required argument is `--sheet_url` - just paste the Google Docs URL! Yo
 
 ```bash
 # Fetch URLs
-# Note the args are in lowercase
+# Note the flags are in lowercase
 python get_fastq_urls.py \
 --sheet_url paste-url-here \
 --project_id NRS --species saxatilis,arcana --sequence_type WGS_single_individual
 ```
 
-The script writes a file with all the target URLs. You can download FASTQ files into a new directory as:
+The script writes a file with all the target URLs - note that >= 2 FASTQ URLs are expected per BioSample ID (for example, there are 873 files for 108 samples in the NSN dataset). You can download FASTQ files into a new directory as:
 
 ```bash
 mkdir fastq
