@@ -24,7 +24,7 @@ The script writes a file with all the target URLs - note that >= 2 FASTQ URLs ar
 mkdir fastq
 cd ./fastq
 
-while IFS=$'\t' read -r biosample_id species url; do
+while IFS=$'\t' read -r sample_id\tspecies\tbiosample_id url; do
 
     filename=$(basename "$url")
 

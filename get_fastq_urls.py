@@ -83,13 +83,23 @@ for acc in accessions:
             for ftp in ftp_field.split(";"):
                 fastq_urls[acc].append("https://" + ftp)
 
-# Save URLs
+# Write URLs
 with open(f"fastq_urls.tsv", "w") as f:
     for acc in fastq_urls.keys():
         for url in fastq_urls[acc]:
-            f.write(acc + "\t")
+            f.write(df.loc[df["biosample_id"] == acc, "sample_id"].values[0] + "\t")
             f.write(df.loc[df["biosample_id"] == acc, "species"].values[0] + "\t")
+            f.write(acc + "\t")
             f.write(url + "\n")
+
+# Write report
+with open(f"fastq_report.tsv", "w") as f:
+    f.write("sample_id\tspecies\tbiosample_id\tfastq_num\n")
+    for acc in fastq_urls.keys():
+        f.write(df.loc[df["biosample_id"] == acc, "sample_id"].values[0] + "\t")
+        f.write(df.loc[df["biosample_id"] == acc, "species"].values[0] + "\t")
+        f.write(acc + "\t")
+        f.write(f"{len(fastq_urls[acc])}" + "\n") 
 
 # Useful info
 print(f"Collected {sum([len(x) for x in fastq_urls.values()])} FASTQ URLs.")
